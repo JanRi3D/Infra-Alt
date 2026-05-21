@@ -47,8 +47,8 @@ cluster:
   apiServer:
     certSANs:
       - 10.0.20.11
-      - 10.0.20.14
-      - 10.0.20.15
+      - 10.0.20.12
+      - 10.0.20.13
   network:
     cni:
       name: none
@@ -62,15 +62,8 @@ name: enp0s31f6
 up: true
 ---
 apiVersion: v1alpha1
-kind: VLANConfig
-name: enp0s31f6.20
-parent: enp0s31f6
-vlanID: 20
-up: true
----
-apiVersion: v1alpha1
 kind: DHCPv4Config
-name: enp0s31f6.20
+name: enp0s31f6
 ---
 apiVersion: v1alpha1
 kind: VLANConfig

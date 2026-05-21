@@ -31,23 +31,6 @@ releases:
     version: 5.0.1
     values:
       - ./templates/values.yaml.gotmpl
-    hooks:
-        command: bash
-        args:
-          - -c
-          - until kubectl get crd clustersecretstores.external-secrets.io &>/dev/null; do sleep 5; done
-        events:
-          - postsync
-        showlogs: true
-        command: kubectl
-        args:
-          - apply
-          - --server-side
-          - --field-manager=kustomize-controller
-          - --filename=../kubernetes/apps/external-secrets/onepassword/app/clustersecretstore.yaml
-        events:
-          - postsync
-        showlogs: true
     needs:
       - external-secrets/external-secrets
 
