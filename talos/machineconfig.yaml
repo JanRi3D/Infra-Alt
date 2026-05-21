@@ -42,9 +42,39 @@ machine:
     image: factory.talos.dev/metal-installer/81ffc23ba1f0113dcf159f5b4d82c41a3058818a0cdc70450adb387617bd9712:v1.12.5
     wipe: true
 cluster:
+  controlPlane:
+    endpoint: https://10.0.20.11:6443
+  apiServer:
+    certSANs:
+      - 10.0.20.11
+      - 10.0.20.14
+      - 10.0.20.15
   network:
     cni:
       name: none
   proxy:
     disabled: true
   allowSchedulingOnControlPlanes: true
+---
+apiVersion: v1alpha1
+kind: LinkConfig
+name: enp0s31f6
+up: true
+---
+apiVersion: v1alpha1
+kind: VLANConfig
+name: enp0s31f6.20
+parent: enp0s31f6
+vlanID: 20
+up: true
+---
+apiVersion: v1alpha1
+kind: DHCPv4Config
+name: enp0s31f6.20
+---
+apiVersion: v1alpha1
+kind: VLANConfig
+name: enp0s31f6.40
+parent: enp0s31f6
+vlanID: 40
+up: true
