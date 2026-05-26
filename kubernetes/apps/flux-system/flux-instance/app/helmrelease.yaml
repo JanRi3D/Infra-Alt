@@ -24,7 +24,7 @@ spec:
         - notification-controller
       sync:
         kind: GitRepository
-        url: https://github.com/JanRi3D/Infra.git
+        url: https://github.com/JanRi3D/Infra-Alt.git
         ref: refs/heads/main
         path: kubernetes/apps/
         interval: 5m
