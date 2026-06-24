@@ -39,7 +39,7 @@ machine:
           - rshared
           - rw
   install:
-    image: factory.talos.dev/metal-installer/81ffc23ba1f0113dcf159f5b4d82c41a3058818a0cdc70450adb387617bd9712:v1.12.5
+    image: factory.talos.dev/metal-installer/81ffc23ba1f0113dcf159f5b4d82c41a3058818a0cdc70450adb387617bd9712:v1.13.5
     wipe: true
 cluster:
   controlPlane:
